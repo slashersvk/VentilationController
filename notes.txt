@@ -1,0 +1,36 @@
+VUE vs ANGULAR a REACT: https://www.valuecoders.com/blog/technology-and-apps/vue-js-comparison-angular-react/
+			https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176y
+REACT vs ANGULAR: https://www.valuecoders.com/blog/technology-and-apps/angularjs-vs-reactjs-suits-better/
+VUE: https://github.com/vuejs/vue
+
+ANGULAR:
+- MVC framework
+-vytvoereny googlom
+-siln˝ n·stroj pre single page applications
+-VERZIE: AngularJS/Angular 1 -> Angular 2 (rewrite 1-ky) -> Angular 4 (sp‰tn· koompatibilita pre 2-ku)
+-generovanie kodu v CLI
+-obsahuje unit testy
+-pouûÌva TypeScript - vytvoren˝ Micorosoftom, 
+		    - moûme vytvorit Classy - objekty --> OOP oproti kalsickÈmu JavaScriptu
+------------------------------------
+-components
+-services - pomocou nich moûme prenaöat data medzi komponentmi
+-instalacia: Angular CLI, Quickstart Seed; Depencdencies: Node.js a npm(node package manager)
+
+VUE:
+- MVC framework
+- lahko sa uci a pouziva
+- Chrome plugin pre debugging
+- doplÚa chyby predch·dzajucich frameworkov (zisti ktorÈ) - lighweight, fast, easy learning curve, 
+
+REACT:
+- javascript kniûnica
+- vyv˝jan˝ Facebookom
+- JSX - podobna syntax HTML, compiluje sa na JavaScript
+- React Devtools extension - umoûnÌ zobraziù zoznam komponentov
+
+EMBER:
+???
+
+
+https://www.angularminds.com/blog/article/comparison-between-angular-vs-reactjs-vs-vuejs.html
