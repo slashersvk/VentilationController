@@ -31,8 +31,6 @@ export class LoginComponent implements OnInit {
           this.tokenParam.api_token = data.data.api_token;
           this.authService.AccessToken = this.tokenParam.api_token;
           this.router.navigate(['/dashboard']);
-
-
         }
       );
   }

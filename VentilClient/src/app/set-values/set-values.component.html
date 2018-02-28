@@ -1,3 +1,16 @@
-<p>
-  set-values works!
-</p>
+<label for="{{attributes[12].variable}}">{{attributes[12].name}}</label>
+<br>
+  <input type="radio" name="{{attributes[12].variable}}" value="0"> Auto
+  <input type="radio" name="{{attributes[12].variable}}" value="1"> Off
+  <input type="radio" name="{{attributes[12].variable}}" value="2"> Standby 
+  <br>
+  <input type="radio" name="{{attributes[12].variable}}" value="3"> Low
+  <input type="radio" name="{{attributes[12].variable}}" value="4"> Econo
+  <input type="radio" name="{{attributes[12].variable}}" value="5"> Comfort
+<hr>
+<label for="{{attributes[9].variable}}">{{attributes[9].name}}</label> 
+  <br>
+  <input name="{{attributes[9].variable}}" size="4" [(ngModel)] ="attributes[9].value"> {{attributes[9].unit}}
+<hr>
+
+<button (click)="sendData()">Odoslať</button>

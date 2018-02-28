@@ -1,5 +1,10 @@
-TOKEN: {{displayToken}}
-
+<table>
+    <tr><th>Nazov</th><th>Hodnota</th></tr>
+    <tr *ngFor="let a of attributes">
+        <td>{{a.name}} </td>
+        <td>{{a.value}}</td>
+    </tr>
+</table>
 <app-chart></app-chart> <!-- pre kazdy chart osobitne -->
 <app-temperature></app-temperature> <!-- pre kazdu jednu teplotu -->
-<app-set-values><app-set-values>
+<button class="btn btn-info" (click)="redirectToEdit()">Nastaviť hodnoty</button>

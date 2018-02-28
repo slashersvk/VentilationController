@@ -12,10 +12,13 @@ class AttributeController extends Controller
       return Attributes::all();
   }
 
-  public function update(Request $request, Attributes $article)
+  public function update(Request $request)
   {
-      $article->update($request->all());
-
-      return response()->json($article, 200);
+        foreach($request->all() as $key => $value) {
+            $attr = Attributes::where("variable", $key)->first();
+            $attr->value = $value;
+            $attr->save();
+        }
+      return response()->json("OK", 200);
   }
 }

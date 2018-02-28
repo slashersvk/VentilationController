@@ -34,3 +34,7 @@ EMBER:
 
 
 https://www.angularminds.com/blog/article/comparison-between-angular-vs-reactjs-vs-vuejs.html
+========================================================================================================================
+GAUGE: https://mattlewis92.github.io/angular-gauge/
+TEPLOMER: https://github.com/interaminense/thermometer-directive-angular
+https://material.angular.io/guide/getting-started

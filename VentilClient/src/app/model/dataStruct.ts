@@ -1,23 +1,19 @@
-export class DataStruct {
-  token: string;
-  gSet_ManSetpFreqExh_1: number;
-  gSet_ManSetpFreqExh_2: number;
-  gSet_ManSetpFreqExh_3: number;
-  gSet_ManSetpFreqSup_1: number;
-  gSet_ManSetpFreqSup_2: number;
-  gSet_ManSetpFreqSup_3: number;
-  gTSetp_Main: number;
-  gFan_ExhStartCommand: number;
-  gFan_SupStartCommand: number;
-  gOpMode_Main: number;
+export class Attributes {
+  id: number;
+  variable: string;
+  name: string;
+  description: string;
+  value: number;
+  unit: string;
+  multiplier: number;
+  min: number;
+  max: number;
+  bms: boolean;
+  created_at: string;
+  updated_at: string;
 
-  toString() {
-
-  }
 }
 
-export class ChartData {
-  gInputAI_1_Sup: number;
-  gInputAI_2_Exh: number;
-  gInputAI_2_Room: number;
+export class Reply {
+  message: string;
 }

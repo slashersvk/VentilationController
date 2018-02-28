@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { TokenParams } from '../model/tokenParams';
 import { AuthService } from '../auth.service';
+import { Attributes } from '../model/dataStruct';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +13,7 @@ import { AuthService } from '../auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  displayToken: string;
+  attributes: Attributes[];
 
   constructor(private router: Router, private authService: AuthService) {
 
@@ -20,6 +22,18 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     if (this.authService.AccessToken == "")
       this.router.navigate(['/']);
+
+      Observable.interval(30000).switchMap(() => this.authService.getAttributes()).subscribe(
+        data => {
+          this.attributes = data;
+        }
+      )
+
   }
+
+  redirectToEdit() {
+    this.router.navigate(['/edit']);
+  }
+
 
 }
