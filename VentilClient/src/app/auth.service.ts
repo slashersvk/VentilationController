@@ -15,7 +15,7 @@ export class AuthService {
   private loginAPI = "http://localhost:8000/api/login";
   private attributesAPI =  "http://localhost:8000/api/attributes";
 
-  AccessToken: string = "";
+  AccessToken: string;
 
 
   constructor(private http: Http) {

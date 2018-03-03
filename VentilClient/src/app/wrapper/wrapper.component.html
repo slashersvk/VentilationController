@@ -1,9 +1,11 @@
 <mat-drawer-container class="container">
-  <mat-drawer mode="side" opened="true">
+  <mat-drawer mode="side" opened="true" color="light">
     <mat-list>
-      <a mat-list-item href="/dashboard" > Hlavný panel </a>
-      <a mat-list-item href="/statistics" > Štatistiky </a>
-      <a mat-list-item href="/statistics" > Odhlásiť </a>
+      <a class="menu-button" mat-button href="/app" > Hlavný panel </a>
+      <a class="menu-button" mat-button  href="/app/statistics" > Štatistiky </a>
+      <br>
+      <br><br><br>
+      <a class="menu-button" mat-button href="/#" (click)="logout()" > Odhlásiť </a>
      </mat-list>
   </mat-drawer>
   <mat-drawer-content>

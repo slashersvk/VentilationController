@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
           this.tokenParam.email = data.data.email;
           this.tokenParam.api_token = data.data.api_token;
           this.authService.AccessToken = this.tokenParam.api_token;
-          this.router.navigate(['/dashboard']);
+          sessionStorage.setItem('access_token', this.authService.AccessToken);
+          this.router.navigate(['/app']);
         }
       );
   }

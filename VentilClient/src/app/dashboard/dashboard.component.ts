@@ -20,9 +20,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.authService.AccessToken == "")
-      this.router.navigate(['/']);
-
       Observable.interval(30000).switchMap(() => this.authService.getAttributes()).subscribe(
         data => {
           this.attributes = data;
@@ -32,7 +29,7 @@ export class DashboardComponent implements OnInit {
   }
 
   redirectToEdit() {
-    this.router.navigate(['/edit']);
+    this.router.navigate(['/app/edit']);
   }
 
 

@@ -5,6 +5,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSidenavModule, 
         MatToolbarModule,
         MatListModule,
+        MatRadioModule,
+        MatSliderModule,
+        MatTabsModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatButtonModule
         } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -28,7 +35,7 @@ import { WrapperComponent } from './wrapper/wrapper.component';
     SetValuesComponent,
     DashboardComponent,
     LoginComponent,
-    WrapperComponent
+    WrapperComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,14 @@ import { WrapperComponent } from './wrapper/wrapper.component';
     /* Material Imports Start */
     MatSidenavModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatRadioModule,
+    MatSliderModule,
+    MatTabsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatButtonModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

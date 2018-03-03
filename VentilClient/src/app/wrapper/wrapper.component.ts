@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-wrapper',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WrapperComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private authService: AuthService) {
+
+  }
 
   ngOnInit() {
+    this.authService.AccessToken = sessionStorage.getItem('access_token');
+    console.log(this.authService.AccessToken);
+    if (this.authService.AccessToken == "")
+      this.router.navigate(['/']);
+  }
+
+  logout() {
+    sessionStorage.removeItem('access_token');
   }
 
 }
