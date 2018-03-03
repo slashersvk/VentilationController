@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSidenavModule, 
+        MatToolbarModule,
+        MatListModule,
+        } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ChartComponent } from './chart/chart.component';
@@ -12,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 
 import { Http, HttpModule } from '@angular/http';
 import { AuthService } from './auth.service';
+import { WrapperComponent } from './wrapper/wrapper.component';
 
 
 @NgModule({
@@ -21,13 +27,19 @@ import { AuthService } from './auth.service';
     TemperatureComponent,
     SetValuesComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    WrapperComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    /* Material Imports Start */
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

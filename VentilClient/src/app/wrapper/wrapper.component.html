@@ -1,0 +1,12 @@
+<mat-drawer-container class="container">
+  <mat-drawer mode="side" opened="true">
+    <mat-list>
+      <a mat-list-item href="/dashboard" > Hlavný panel </a>
+      <a mat-list-item href="/statistics" > Štatistiky </a>
+      <a mat-list-item href="/statistics" > Odhlásiť </a>
+     </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+      <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
