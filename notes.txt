@@ -29,8 +29,6 @@ REACT:
 - JSX - podobna syntax HTML, compiluje sa na JavaScript
 - React Devtools extension - umoûnÌ zobraziù zoznam komponentov
 
-EMBER:
-???
 
 
 https://www.angularminds.com/blog/article/comparison-between-angular-vs-reactjs-vs-vuejs.html
