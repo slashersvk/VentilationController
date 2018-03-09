@@ -15,7 +15,7 @@ export class WrapperComponent implements OnInit {
 
   ngOnInit() {
     this.authService.AccessToken = sessionStorage.getItem('access_token');
-    console.log(this.authService.AccessToken);
+    //console.log(this.authService.AccessToken);
     if (this.authService.AccessToken == "")
       this.router.navigate(['/']);
   }

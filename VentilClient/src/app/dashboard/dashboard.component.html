@@ -1,14 +1,98 @@
+<mat-tab-group *ngIf="attributes">
+        <mat-tab label="Grafické rozhranie">
+               
+                <mat-grid-list cols="3" rowHeight="3:2">
+                        <mat-grid-tile>
+                                <ngx-gauge
+                                [type]="gaugeType" 
+                                [value]=attributes[0].value 
+                                [label]="attributes[0].name" 
+                                [append]="attributes[0].unit"
+                                [min]=0
+                                [max]=50
+                                [thick]=20
+                                >                               
+                                </ngx-gauge></mat-grid-tile>
+                        <mat-grid-tile><ngx-gauge
+                                [type]="gaugeType" 
+                                [value]=attributes[1].value 
+                                [label]="attributes[1].name" 
+                                [append]="attributes[1].unit"
+                                [thick]=20>
+                                </ngx-gauge></mat-grid-tile>
+                        <mat-grid-tile><ngx-gauge
+                                [type]="gaugeType" 
+                                [value]=attributes[2].value 
+                                [label]="attributes[2].name" 
+                                [append]="attributes[2].unit"
+                                [thick]=20>
+                                </ngx-gauge></mat-grid-tile>
+                      </mat-grid-list>
 
-<table>
-    <tr><th>Nazov</th><th>Hodnota</th></tr>
-    <tr *ngFor="let a of attributes">
-        <td>{{a.name}} </td>
-        <td>{{a.value}}</td>
-    </tr>
-</table>
-<app-chart></app-chart> <!-- pre kazdy chart osobitne -->
-<app-temperature></app-temperature> <!-- pre kazdu jednu teplotu -->
-<button class="btn btn-info" (click)="redirectToEdit()">Nastaviť hodnoty</button>
+                      <mat-grid-list cols="1" rowHeight="15:1">
+                                <mat-grid-tile>
+                                        <h3>Aktívny mód: {{mode}} </h3>
+                                </mat-grid-tile>
+                        </mat-grid-list>
+                <mat-grid-list cols="2" rowHeight="3:2">
+                      <mat-grid-tile>
+                                <mat-slide-toggle class="indicator" [checked]=attributes[10].value >Vstupný ventilátor</mat-slide-toggle>           
+                                <ngx-gauge
+                                [type]="gaugeTypeVent" 
+                                [value]=vent[0].value 
+                                [label]="vent[0].name" 
+                                [append]="vent[0].unit"
+                                [thick]=20>
+                                </ngx-gauge></mat-grid-tile>
+                        <mat-grid-tile>
+                                <mat-slide-toggle class="indicator" [checked]=attributes[10].value >Výstupný ventilátor</mat-slide-toggle>
+                                <ngx-gauge
+                                [type]="gaugeTypeVent" 
+                                [value]=vent[1].value 
+                                [label]="vent[1].name" 
+                                [append]="vent[1].unit"
+                                [thick]=20>
+                                </ngx-gauge></mat-grid-tile>
+                
+                </mat-grid-list>
+                
+        </mat-tab>
 
 
+        <mat-tab label="Tabuľka">
 
+                <table >
+                        <tr *ngFor="let attribute of attributes">
+                                <td>{{attribute.variable}}</td>
+                                <td>{{attribute.name}}</td>
+                                <td>{{attribute.value}}</td>
+                        </tr>
+                </table>
+
+           <!--     <div class="mat-elevation-z8">
+                        <mat-table #table *ngIf="attributes" [dataSource]="attributes">
+
+                             
+                                <ng-container matColumnDef="variable">
+                                        <mat-header-cell *matHeaderCellDef> Premenná </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.variable}} </mat-cell>
+                                </ng-container>
+
+                             
+                                <ng-container matColumnDef="name">
+                                        <mat-header-cell *matHeaderCellDef> Názov </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                                </ng-container>
+
+                      
+                                <ng-container matColumnDef="value">
+                                        <mat-header-cell *matHeaderCellDef> Hodnota </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.value}} </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        </mat-table>
+                </div> -->
+        </mat-tab>
+</mat-tab-group>

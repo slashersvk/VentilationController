@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import { Headers, Http, HttpModule } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http';
 import { TokenParams } from './model/tokenParams';
-import { Attributes, Reply } from './model/dataStruct';
+import { Attributes } from './model/dataStruct';
 
 
 @Injectable()
@@ -36,12 +36,14 @@ export class AuthService {
     return this.http.get(this.attributesAPI, {headers: headersForAPI}).map(res => res.json());
   }
 
-  setAttributes(data: string): Observable<Reply> {
-    var  headersForAPI = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
+  setAttributes(data: Attributes[]): Observable<string> {
+    var  headersForAPI = new Headers({'Content-Type':'application/json'});
     if (this.AccessToken) {
       headersForAPI.append('Authorization', 'Bearer ' + this.AccessToken);
     }
-    return this.http.put(this.attributesAPI, data, { headers: headersForAPI }).map(res => res.json());
+    var sData = JSON.stringify(data);
+   //console.log(sData);
+    return this.http.post(this.attributesAPI, sData, { headers: headersForAPI }).map(res => res.json());
   }
 
 }

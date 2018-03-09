@@ -1,14 +1,18 @@
-<div class="form-field">
+<div class="notification" *ngIf="reply">
+    <p>{{reply}}</p>
+</div>
+
+<div *ngIf="attributes" class="form-field">
   <div class="center">
       <label for="{{attributes[12].variable}}"><h3>{{attributes[12].name}}</h3></label>
-      <mat-radio-group name="{{attributes[12].variable}}">
-        <mat-radio-button  value="0">Auto</mat-radio-button>
-        <mat-radio-button  value="1">Off</mat-radio-button>
-        <mat-radio-button  value="2">Standby</mat-radio-button>
+      <mat-radio-group [(ngModel)]="attributes[12].value" name="{{attributes[12].variable}}">
+        <mat-radio-button ngDefaultControl [value]="0">Auto</mat-radio-button>
+        <mat-radio-button ngDefaultControl [value]="1">Off</mat-radio-button>
+        <mat-radio-button ngDefaultControl [value]="2">Standby</mat-radio-button>
         <br>
-        <mat-radio-button  value="3">Low</mat-radio-button>
-        <mat-radio-button  value="4">Econo</mat-radio-button>
-        <mat-radio-button  value="5">Comfort</mat-radio-button>
+        <mat-radio-button ngDefaultControl [value]="3">Low</mat-radio-button>
+        <mat-radio-button ngDefaultControl [value]="4">Econo</mat-radio-button>
+        <mat-radio-button ngDefaultControl [value]="5">Comfort</mat-radio-button>
       </mat-radio-group>
   </div>
   <br>  
@@ -77,7 +81,8 @@
           </mat-grid-list>
     </mat-tab>
   </mat-tab-group> 
+  <button mat-raised-button color="accent" (click)="sendData()">Odoslať</button>
 </div>
-<button mat-raised-button color="accent" (click)="sendData()">Odoslať</button>
+
 
 

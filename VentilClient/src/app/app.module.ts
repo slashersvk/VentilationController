@@ -11,7 +11,9 @@ import {MatSidenavModule,
         MatInputModule,
         MatFormFieldModule,
         MatGridListModule,
-        MatButtonModule
+        MatButtonModule,
+        MatTableModule,
+        MatSlideToggleModule
         } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -25,6 +27,8 @@ import { LoginComponent } from './login/login.component';
 import { Http, HttpModule } from '@angular/http';
 import { AuthService } from './auth.service';
 import { WrapperComponent } from './wrapper/wrapper.component';
+
+import { NgxGaugeModule } from 'ngx-gauge';
 
 
 @NgModule({
@@ -53,7 +57,11 @@ import { WrapperComponent } from './wrapper/wrapper.component';
     MatInputModule,
     MatFormFieldModule,
     MatGridListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatSlideToggleModule,
+    /* Material Imports End */
+    NgxGaugeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

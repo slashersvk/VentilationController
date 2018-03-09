@@ -14,11 +14,11 @@ class AttributeController extends Controller
 
   public function update(Request $request)
   {
-        foreach($request->all() as $key => $value) {
-            $attr = Attributes::where("variable", $key)->first();
-            $attr->value = $value;
-            $attr->save();
+        foreach($request->all() as $value) {
+            $attribute = Attributes::where("variable", $value['variable'])->first();
+            $attribute->value = $value['value'];
+            $attribute->save();
         }
-      return response()->json("OK", 200);
+      return response()->json('Dáta boli uložené', 200);   
   }
 }

@@ -22,4 +22,4 @@ Route::post('/logout', 'Auth\LoginController@logout');
 
 Route::get('/attributes', 'AttributeController@index');
 //Route::get('attributes/{article}', 'ArticleController@show');
-Route::put('/attributes', 'AttributeController@update');
+Route::post('/attributes', 'AttributeController@update');
