@@ -1,16 +1,88 @@
-<label for="{{attributes[12].variable}}">{{attributes[12].name}}</label>
-<br>
-  <input type="radio" name="{{attributes[12].variable}}" value="0"> Auto
-  <input type="radio" name="{{attributes[12].variable}}" value="1"> Off
-  <input type="radio" name="{{attributes[12].variable}}" value="2"> Standby 
-  <br>
-  <input type="radio" name="{{attributes[12].variable}}" value="3"> Low
-  <input type="radio" name="{{attributes[12].variable}}" value="4"> Econo
-  <input type="radio" name="{{attributes[12].variable}}" value="5"> Comfort
-<hr>
-<label for="{{attributes[9].variable}}">{{attributes[9].name}}</label> 
-  <br>
-  <input name="{{attributes[9].variable}}" size="4" [(ngModel)] ="attributes[9].value"> {{attributes[9].unit}}
-<hr>
+<div class="notification" *ngIf="reply">
+    <p>{{reply}}</p>
+</div>
 
-<button (click)="sendData()">Odoslať</button>
+<div *ngIf="attributes" class="form-field">
+  <div class="center">
+      <label for="{{attributes[12].variable}}"><h3>{{attributes[12].name}}</h3></label>
+      <mat-radio-group [(ngModel)]="attributes[12].value" name="{{attributes[12].variable}}">
+        <mat-radio-button ngDefaultControl [value]="0">Auto</mat-radio-button>
+        <mat-radio-button ngDefaultControl [value]="1">Off</mat-radio-button>
+        <mat-radio-button ngDefaultControl [value]="2">Standby</mat-radio-button>
+        <br>
+        <mat-radio-button ngDefaultControl [value]="3">Low</mat-radio-button>
+        <mat-radio-button ngDefaultControl [value]="4">Econo</mat-radio-button>
+        <mat-radio-button ngDefaultControl [value]="5">Comfort</mat-radio-button>
+      </mat-radio-group>
+  </div>
+  <br>  
+  <hr>
+  <div class="center">
+      <label for="{{attributes[9].variable}}"><h3>{{attributes[9].name}}</h3></label> 
+      <mat-slider min="10" max="30" step="0.1" [(ngModel)] ="attributes[9].value"></mat-slider>
+      <br>
+      <input name="{{attributes[9].variable}}" size="4" [(ngModel)] ="attributes[9].value"> {{attributes[9].unit}}
+  </div>
+  <br>
+  <hr>
+  <mat-tab-group>
+    <mat-tab label="Low">
+        <mat-grid-list cols="2" rowHeight="1:1" rowHeight="150px">
+            <mat-grid-tile>
+                <label>{{attributes[3].name}}</label>
+                <br>
+                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="attributes[3].value"></mat-slider>
+                <br>
+                <input size="3" [(ngModel)] ="attributes[3].value">{{attributes[3].unit}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <label>{{attributes[6].name}}</label>
+                <br>
+                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="attributes[6].value"></mat-slider>
+                <br>
+                <input size="3" [(ngModel)] ="attributes[6].value">{{attributes[6].unit}}
+            </mat-grid-tile>
+          </mat-grid-list>
+    </mat-tab>
+    <mat-tab label="Econo">
+        <mat-grid-list cols="2" rowHeight="1:1" rowHeight="150px">
+            <mat-grid-tile>
+                <label>{{attributes[4].name}}</label>
+                <br>
+                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="attributes[4].value"></mat-slider>
+                <br>
+                <input size="3" [(ngModel)] ="attributes[4].value">{{attributes[4].unit}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <label>{{attributes[7].name}}</label>
+                <br>
+                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="attributes[7].value"></mat-slider>
+                <br>
+                <input size="3" [(ngModel)] ="attributes[7].value">{{attributes[7].unit}}
+            </mat-grid-tile>
+          </mat-grid-list>
+    </mat-tab>
+    <mat-tab label="Comfort">
+        <mat-grid-list cols="2" rowHeight="1:1" rowHeight="150px">
+            <mat-grid-tile>
+                <label>{{attributes[5].name}}</label>
+                <br>
+                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="attributes[5].value"></mat-slider>
+                <br>
+                <input size="3" [(ngModel)] ="attributes[5].value">{{attributes[5].unit}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <label>{{attributes[8].name}}</label>
+                <br>
+                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="attributes[8].value"></mat-slider>
+                <br>
+                <input size="3" [(ngModel)] ="attributes[8].value">{{attributes[8].unit}}
+            </mat-grid-tile>
+          </mat-grid-list>
+    </mat-tab>
+  </mat-tab-group> 
+  <button mat-raised-button color="accent" (click)="sendData()">Odoslať</button>
+</div>
+
+
+

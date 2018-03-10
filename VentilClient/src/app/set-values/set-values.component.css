@@ -1,0 +1,14 @@
+.center {
+    width: 50%;
+    margin: auto;
+}
+
+.mat-radio-button {
+    margin: 5px;
+}
+
+.notification {
+    padding: 10px;
+    background-color: greenyellow;
+}
+  

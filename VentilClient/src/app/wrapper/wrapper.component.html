@@ -1,0 +1,18 @@
+<mat-drawer-container class="container" fullscreen> 
+  <mat-drawer mode="side" opened="true">
+      <mat-toolbar color="primary">
+          <h1>Cinema Airmote</h1>
+        </mat-toolbar>
+    <mat-list>
+      <a class="menu-button" mat-button href="/app" > Údaje </a>
+      <a class="menu-button" mat-button  href="/app/statistics" > Štatistiky </a>
+      <a class="menu-button" mat-button  href="/app/edit" > Nastavenia </a>
+      <br>
+      <br><br><br>
+      <a class="menu-button" mat-button href="/#" (click)="logout()" > Odhlásiť </a>
+     </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+      <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

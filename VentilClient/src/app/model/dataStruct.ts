@@ -3,7 +3,7 @@ export class Attributes {
   variable: string;
   name: string;
   description: string;
-  value: number;
+  value: string;
   unit: string;
   multiplier: number;
   min: number;
@@ -12,8 +12,4 @@ export class Attributes {
   created_at: string;
   updated_at: string;
 
-}
-
-export class Reply {
-  message: string;
 }
