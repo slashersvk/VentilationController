@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout');
 
-Route::get('/attributes', 'AttributeController@index');
+Route::get('/attributes', 'AttributeController@index')->middleware('auth:api');
 //Route::get('attributes/{article}', 'ArticleController@show');
-Route::post('/attributes', 'AttributeController@update');
+Route::post('/attributes', 'AttributeController@update')->middleware('auth:api');
+Route::get('/statistics', 'StatisticsController@index')->middleware('auth:api');

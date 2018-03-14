@@ -22,6 +22,7 @@ VUE:
 - lahko sa uci a pouziva
 - Chrome plugin pre debugging
 - doplòa chyby predchádzajucich frameworkov (zisti ktoré) - lighweight, fast, easy learning curve, 
+- verzie pomenované pod¾a anime komiksoch
 
 REACT:
 - javascript knižnica

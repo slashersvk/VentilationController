@@ -25,6 +25,13 @@
   </div>
   <br>
   <hr>
+  <div>
+        <mat-slide-toggle class="indicator" [(ngModel)]="attributes[10].value"  >Vstupný ventilátor</mat-slide-toggle>
+        <br>
+        <mat-slide-toggle class="indicator" [(ngModel)]="attributes[11].value"  >Výstupný ventilátor</mat-slide-toggle>                    
+  </div>
+
+  <hr>
   <mat-tab-group>
     <mat-tab label="Low">
         <mat-grid-list cols="2" rowHeight="1:1" rowHeight="150px">

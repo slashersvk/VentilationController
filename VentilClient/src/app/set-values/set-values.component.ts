@@ -22,7 +22,7 @@ export class SetValuesComponent implements OnInit {
     this.authService.getAttributes().subscribe(
       data => {
         this.attributes = data;
-        console.log(this.attributes);
+        //console.log(this.attributes);
       }
     )
   }
@@ -36,7 +36,7 @@ export class SetValuesComponent implements OnInit {
       data => {
        // console.log(this.data);
         this.reply = data;
-        console.log(this.reply);
+        //console.log(this.reply);
       }
     )
   
