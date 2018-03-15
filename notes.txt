@@ -37,3 +37,4 @@ https://www.angularminds.com/blog/article/comparison-between-angular-vs-reactjs-
 GAUGE: https://mattlewis92.github.io/angular-gauge/
 TEPLOMER: https://github.com/interaminense/thermometer-directive-angular
 https://material.angular.io/guide/getting-started
+https://insights.stackoverflow.com/survey/2018/?utm_source=Iterable&utm_medium=email&utm_campaign=dev-survey-2018-promotion
