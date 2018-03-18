@@ -6,17 +6,19 @@ import 'rxjs/add/operator/map';
 import { Headers, Http, HttpModule } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http';
 import { TokenParams } from './model/tokenParams';
-import { Attributes } from './model/dataStruct';
+import { Controls, Logs } from './model/dataStruct';
 
 
 @Injectable()
 export class AuthService {
 
   private loginAPI = "http://localhost:8000/api/login";
-  private attributesAPI =  "http://localhost:8000/api/attributes";
+  private controlsAPI =  "http://localhost:8000/api/controls";
+  private logsAPI = "http://localhost:8000/api/logs";
 
   AccessToken: string;
-
+  controls: Controls;
+  logs: Logs[];
 
   constructor(private http: Http) {
 
@@ -28,22 +30,32 @@ export class AuthService {
     return this.http.post(this.loginAPI, data, { headers: headersForAPI }).map(res => res.json());
   }
 
-  getAttributes(): Observable<Attributes[]> {
+  getControls(): Observable<Controls> {
     var  headersForAPI = new Headers();
     if (this.AccessToken) {
       headersForAPI.append('Authorization', 'Bearer ' + this.AccessToken);
     }
-    return this.http.get(this.attributesAPI, {headers: headersForAPI}).map(res => res.json());
+    return this.http.get(this.controlsAPI, {headers: headersForAPI}).map(res => res.json());
   }
 
-  setAttributes(data: Attributes[]): Observable<string> {
+  setControls(data: Controls): Observable<string> {
     var  headersForAPI = new Headers({'Content-Type':'application/json'});
     if (this.AccessToken) {
       headersForAPI.append('Authorization', 'Bearer ' + this.AccessToken);
     }
     var sData = JSON.stringify(data);
-   //console.log(sData);
-    return this.http.post(this.attributesAPI, sData, { headers: headersForAPI }).map(res => res.json());
+    return this.http.post(this.controlsAPI, sData, { headers: headersForAPI }).map(res => res.json());
+  }
+
+  getLogs(): Observable<string> {
+    var  headersForAPI = new Headers({'Content-Type':'application/json'});
+    if (this.AccessToken) {
+      headersForAPI.append('Authorization', 'Bearer ' + this.AccessToken);
+    }
+    //zobrat posledny udaj z localStorage a jeho created_at datum
+    //vlozit ho ako spravu
+    var sData = "";
+    return this.http.post(this.controlsAPI, sData, { headers: headersForAPI }).map(res => res.json());
   }
 
 }

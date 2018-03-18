@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { Attributes } from '../model/dataStruct';
+import { Controls } from '../model/dataStruct';
 
 @Component({
   selector: 'app-set-values',
@@ -10,29 +10,19 @@ import { Attributes } from '../model/dataStruct';
 })
 export class SetValuesComponent implements OnInit {
 
-  attributes: Attributes[];;
+  controlsToSend: Controls;
   reply: string;
-  data: string[];
 
   constructor(private router: Router, private authService: AuthService) {
 
   }
 
   ngOnInit() {
-    this.authService.getAttributes().subscribe(
-      data => {
-        this.attributes = data;
-        //console.log(this.attributes);
-      }
-    )
+    this.controlsToSend = this.authService.controls;
   }
 
   sendData() {
-    this.data = [];
-    for (let attr of this.attributes) {
-      this.data[attr.variable] = attr.value;
-    }
-    this.authService.setAttributes(this.attributes).subscribe(
+    this.authService.setControls(this.controlsToSend).subscribe(
       data => {
        // console.log(this.data);
         this.reply = data;

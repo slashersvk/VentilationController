@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAttributesTable extends Migration
+class ControlsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,12 @@ class CreateAttributesTable extends Migration
      */
     public function up()
     {
-        Schema::create('attributes', function (Blueprint $table) {
+
+        Schema::create('controls', function (Blueprint $table) {
             $table->increments('id');
             $table->string('variable');
-            $table->string('name');
-            $table->string('description');
             $table->string('value');
-            $table->string('unit');
             $table->string('multiplier');
-            $table->string('min');
-            $table->string('max');
-            $table->string('bms');
-            $table->timestamps();
         });
     }
 
@@ -35,6 +29,6 @@ class CreateAttributesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attributes');
+        Schema::dropIfExists('controls');
     }
 }

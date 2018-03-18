@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Attributes;
+use App\Controls;
 
-class AttributeController extends Controller
+class ControlsController extends Controller
 {
-  public function index()
+  public function getControls()
   {
-      return Attributes::all();
+      return Controls::all();
   }
 
   public function update(Request $request)
   {
         foreach($request->all() as $value) {
-            $attribute = Attributes::where("variable", $value['variable'])->first();
+            $attribute = Controls::where("variable", $value['variable'])->first();
             $attribute->value = $value['value'];
             $attribute->save();
         }
