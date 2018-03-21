@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AsyncLocalStorageModule } from 'angular-async-local-storage';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSidenavModule, 
         MatToolbarModule,
@@ -47,6 +48,7 @@ import { NgxGaugeModule } from 'ngx-gauge';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
+    AsyncLocalStorageModule,
     /* Material Imports Start */
     MatSidenavModule,
     MatToolbarModule,

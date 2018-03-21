@@ -2,10 +2,10 @@
     <p>{{reply}}</p>
 </div>
 
-<div *ngIf="attributes" class="form-field">
+<div *ngIf="controls" class="form-field">
   <div class="center">
-      <label for="{{attributes[12].variable}}"><h3>{{attributes[12].name}}</h3></label>
-      <mat-radio-group [(ngModel)]="attributes[12].value" name="{{attributes[12].variable}}">
+      <label for="gOpMode_Main"><h3>Mód</h3></label>
+      <mat-radio-group [(ngModel)]="controls['gOpMode_Main'].value" name="gOpMode_Main">
         <mat-radio-button ngDefaultControl [value]="0">Auto</mat-radio-button>
         <mat-radio-button ngDefaultControl [value]="1">Off</mat-radio-button>
         <mat-radio-button ngDefaultControl [value]="2">Standby</mat-radio-button>
@@ -18,10 +18,10 @@
   <br>  
   <hr>
   <div class="center">
-      <label for="{{attributes[9].variable}}"><h3>{{attributes[9].name}}</h3></label> 
-      <mat-slider min="10" max="30" step="0.1" [(ngModel)] ="attributes[9].value"></mat-slider>
+      <label for="gTSetp_Main"><h3>Teplota</h3></label> 
+      <mat-slider min="10" max="30" step="0.1" [(ngModel)] ="controls['gTSetp_Main'].value"></mat-slider>
       <br>
-      <input name="{{attributes[9].variable}}" size="4" [(ngModel)] ="attributes[9].value"> {{attributes[9].unit}}
+      <input name="gTSetp_Main" size="4" [(ngModel)] ="controls['gTSetp_Main'].value"> °C
   </div>
   <br>
   <hr>
@@ -29,57 +29,58 @@
     <mat-tab label="Low">
         <mat-grid-list cols="2" rowHeight="1:1" rowHeight="150px">
             <mat-grid-tile>
-                <label>{{attributes[3].name}}</label>
+                <label>Výstup</label>
                 <br>
-                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="attributes[3].value"></mat-slider>
+                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="controls['gSet_ManSetpFreqExh_1'].value"></mat-slider>
                 <br>
-                <input size="3" [(ngModel)] ="attributes[3].value">{{attributes[3].unit}}
+                <input size="3" [(ngModel)] ="controls['gSet_ManSetpFreqExh_1'].value">%
             </mat-grid-tile>
             <mat-grid-tile>
-                <label>{{attributes[6].name}}</label>
+                <label>Vstup</label>
                 <br>
-                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="attributes[6].value"></mat-slider>
+                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="controls['gSet_ManSetpFreqSup_1'].value"></mat-slider>
                 <br>
-                <input size="3" [(ngModel)] ="attributes[6].value">{{attributes[6].unit}}
+                <input size="3" [(ngModel)] ="controls['gSet_ManSetpFreqSup_1'].value">%
             </mat-grid-tile>
           </mat-grid-list>
     </mat-tab>
     <mat-tab label="Econo">
         <mat-grid-list cols="2" rowHeight="1:1" rowHeight="150px">
             <mat-grid-tile>
-                <label>{{attributes[4].name}}</label>
+                <label>Výstup</label>
                 <br>
-                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="attributes[4].value"></mat-slider>
+                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="controls['gSet_ManSetpFreqExh_2'].value"></mat-slider>
                 <br>
-                <input size="3" [(ngModel)] ="attributes[4].value">{{attributes[4].unit}}
+                <input size="3" [(ngModel)] ="controls['gSet_ManSetpFreqExh_2'].value">%
             </mat-grid-tile>
             <mat-grid-tile>
-                <label>{{attributes[7].name}}</label>
+                <label>Vstup</label>
                 <br>
-                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="attributes[7].value"></mat-slider>
+                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="controls['gSet_ManSetpFreqSup_2'].value"></mat-slider>
                 <br>
-                <input size="3" [(ngModel)] ="attributes[7].value">{{attributes[7].unit}}
+                <input size="3" [(ngModel)] ="controls['gSet_ManSetpFreqSup_2'].value">%
             </mat-grid-tile>
           </mat-grid-list>
     </mat-tab>
     <mat-tab label="Comfort">
         <mat-grid-list cols="2" rowHeight="1:1" rowHeight="150px">
             <mat-grid-tile>
-                <label>{{attributes[5].name}}</label>
+                <label>Výstup</label>
                 <br>
-                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="attributes[5].value"></mat-slider>
+                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="controls['gSet_ManSetpFreqExh_3'].value"></mat-slider>
                 <br>
-                <input size="3" [(ngModel)] ="attributes[5].value">{{attributes[5].unit}}
+                <input size="3" [(ngModel)] ="controls['gSet_ManSetpFreqExh_3'].value">%
             </mat-grid-tile>
             <mat-grid-tile>
-                <label>{{attributes[8].name}}</label>
+                <label>Vstup</label>
                 <br>
-                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="attributes[8].value"></mat-slider>
+                <mat-slider vertical min="0.1" max="99.9" step="0.1" [(ngModel)] ="controls['gSet_ManSetpFreqSup_3'].value"></mat-slider>
                 <br>
-                <input size="3" [(ngModel)] ="attributes[8].value">{{attributes[8].unit}}
+                <input size="3" [(ngModel)] ="controls['gSet_ManSetpFreqSup_3'].value">%
             </mat-grid-tile>
           </mat-grid-list>
     </mat-tab>
+    
   </mat-tab-group> 
   <button mat-raised-button color="accent" (click)="sendData()">Odoslať</button>
 </div>

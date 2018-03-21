@@ -30,7 +30,7 @@ export class AuthService {
     return this.http.post(this.loginAPI, data, { headers: headersForAPI }).map(res => res.json());
   }
 
-  getControls(): Observable<Controls> {
+  getControls(): Observable<Controls[]> {
     var  headersForAPI = new Headers();
     if (this.AccessToken) {
       headersForAPI.append('Authorization', 'Bearer ' + this.AccessToken);
@@ -44,7 +44,8 @@ export class AuthService {
       headersForAPI.append('Authorization', 'Bearer ' + this.AccessToken);
     }
     var sData = JSON.stringify(data);
-    return this.http.post(this.controlsAPI, sData, { headers: headersForAPI }).map(res => res.json());
+    //console.log(sData);
+    return this.http.post(this.controlsAPI, data, { headers: headersForAPI }).map(res => res.json());
   }
 
   getLogs(): Observable<string> {
