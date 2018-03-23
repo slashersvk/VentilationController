@@ -19,7 +19,6 @@ import {MatSidenavModule,
 
 import { AppComponent } from './app.component';
 import { ChartComponent } from './chart/chart.component';
-import { TemperatureComponent } from './temperature/temperature.component';
 import { SetValuesComponent } from './set-values/set-values.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -30,13 +29,13 @@ import { AuthService } from './auth.service';
 import { WrapperComponent } from './wrapper/wrapper.component';
 
 import { NgxGaugeModule } from 'ngx-gauge';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ChartComponent,
-    TemperatureComponent,
     SetValuesComponent,
     DashboardComponent,
     LoginComponent,
@@ -63,7 +62,8 @@ import { NgxGaugeModule } from 'ngx-gauge';
     MatTableModule,
     MatSlideToggleModule,
     /* Material Imports End */
-    NgxGaugeModule
+    NgxGaugeModule,
+    ChartsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

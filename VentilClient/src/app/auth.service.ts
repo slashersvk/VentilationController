@@ -38,7 +38,7 @@ export class AuthService {
     return this.http.get(this.controlsAPI, {headers: headersForAPI}).map(res => res.json());
   }
 
-  setControls(data: Controls): Observable<string> {
+  setControls(data: Controls[]): Observable<string> {
     var  headersForAPI = new Headers({'Content-Type':'application/json'});
     if (this.AccessToken) {
       headersForAPI.append('Authorization', 'Bearer ' + this.AccessToken);
@@ -48,15 +48,14 @@ export class AuthService {
     return this.http.post(this.controlsAPI, data, { headers: headersForAPI }).map(res => res.json());
   }
 
-  getLogs(): Observable<string> {
+  getLogs(logTime: string): Observable<Logs[]> {
     var  headersForAPI = new Headers({'Content-Type':'application/json'});
     if (this.AccessToken) {
       headersForAPI.append('Authorization', 'Bearer ' + this.AccessToken);
     }
-    //zobrat posledny udaj z localStorage a jeho created_at datum
-    //vlozit ho ako spravu
-    var sData = "";
-    return this.http.post(this.controlsAPI, sData, { headers: headersForAPI }).map(res => res.json());
+   
+    let data = {updated_at: logTime};
+    return this.http.post(this.logsAPI, data, { headers: headersForAPI }).map(res => res.json());
   }
 
 }

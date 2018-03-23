@@ -16,3 +16,17 @@ export class Logs {
   created_at: string;
   updated_at: string;
 }
+
+export class ChartData {
+  name: string;
+  series: Serie[];
+
+  constructor() {
+    this.series = new Array<Serie>();
+  }
+}
+
+export class Serie {
+  name: string;
+  value: string;
+}

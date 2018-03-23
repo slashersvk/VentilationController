@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Controls } from '../model/dataStruct';
-import { AsyncLocalStorage } from 'angular-async-local-storage';
-import { forEach } from '@angular/router/src/utils/collection';
+
+
 
 @Component({
   selector: 'app-set-values',
@@ -12,27 +11,25 @@ import { forEach } from '@angular/router/src/utils/collection';
 })
 export class SetValuesComponent implements OnInit {
 
-  controls: Array<Controls>;
-  controlsData: Controls;
+  @Input() inputControls: Controls[];
+  controls: Controls[];
+  controlsData: Controls[]; //data na odoslanie
   reply: string;
 
-  constructor(private router: Router, private authService: AuthService, protected localStorage: AsyncLocalStorage) {
+  constructor(private authService: AuthService) {
 
   }
 
   ngOnInit() {
     //this.controlsToSend = this.authService.controls;
-    this.localStorage.getItem<Controls>('controls').subscribe((data) => {
       this.controls = new Array<Controls>();
-      this.controlsData = data;
-      for(let c in data) {
-        this.controls[data[c].variable] = new Controls;
-        this.controls[data[c].variable].id = Number(c);
-        this.controls[data[c].variable].value = "" + (Number(data[c].value) * Number(data[c].multiplier));
-        this.controls[data[c].variable].multiplier = data[c].multiplier;    
+      this.controlsData = this.inputControls; 
+      for(let c in this.inputControls) {
+        this.controls[this.inputControls[c].variable] = new Controls;
+        this.controls[this.inputControls[c].variable].id = Number(c);
+        this.controls[this.inputControls[c].variable].value = "" + (Number(this.inputControls[c].value) * Number(this.inputControls[c].multiplier));
+        this.controls[this.inputControls[c].variable].multiplier = this.inputControls[c].multiplier;    
       }
-      
-  });
   }
 
   sendData() {
@@ -45,6 +42,7 @@ export class SetValuesComponent implements OnInit {
     this.authService.setControls(this.controlsData).subscribe(
       data => {
         this.reply = data;
+        //this.localStorage.setItem('controls', this.controlsData ).subscribe(() => {});
       }
     )
   

@@ -1,67 +1,50 @@
-<mat-tab-group *ngIf="attributes">
+<mat-tab-group *ngIf="(displayLog && displayControls)">
         <mat-tab label="Grafické rozhranie">
-               
+
                 <mat-grid-list cols="3" rowHeight="3:2">
                         <mat-grid-tile>
-                                <ngx-gauge
-                                [type]="gaugeType" 
-                                [value]=attributes[0].value 
-                                [label]="attributes[0].name" 
-                                [append]="attributes[0].unit"
-                                [min]=0
-                                [max]=50
-                                [thick]=20
-                                >                               
-                                </ngx-gauge></mat-grid-tile>
-                        <mat-grid-tile><ngx-gauge
-                                [type]="gaugeType" 
-                                [value]=attributes[1].value 
-                                [label]="attributes[1].name" 
-                                [append]="attributes[1].unit"
-                                [thick]=20>
-                                </ngx-gauge></mat-grid-tile>
-                        <mat-grid-tile><ngx-gauge
-                                [type]="gaugeType" 
-                                [value]=attributes[2].value 
-                                [label]="attributes[2].name" 
-                                [append]="attributes[2].unit"
-                                [thick]=20>
-                                </ngx-gauge></mat-grid-tile>
-                      </mat-grid-list>
-
-                      <mat-grid-list cols="1" rowHeight="15:1">
-                                <mat-grid-tile>
-                                        <h3>Aktívny mód: {{mode}} </h3>
-                                </mat-grid-tile>
-                        </mat-grid-list>
-                <mat-grid-list cols="2" rowHeight="3:2">
-                      <mat-grid-tile>
-                                <mat-slide-toggle class="indicator" [checked]=attributes[10].value >Vstupný ventilátor</mat-slide-toggle>           
-                                <ngx-gauge
-                                [type]="gaugeTypeVent" 
-                                [value]=vent[0].value 
-                                [label]="vent[0].name" 
-                                [append]="vent[0].unit"
-                                [thick]=20>
-                                </ngx-gauge></mat-grid-tile>
+                                <ngx-gauge [type]="gaugeType" [value]="displayLog['gInputAI_1_Sup']" [label]="'Teplota vstup'" [append]="'°C'" [min]=0 [max]=50
+                                        [thick]=20>
+                                </ngx-gauge>
+                        </mat-grid-tile>
                         <mat-grid-tile>
-                                <mat-slide-toggle class="indicator" [checked]=attributes[11].value >Výstupný ventilátor</mat-slide-toggle>
-                                <ngx-gauge
-                                [type]="gaugeTypeVent" 
-                                [value]=vent[1].value 
-                                [label]="vent[1].name" 
-                                [append]="vent[1].unit"
-                                [thick]=20>
-                                </ngx-gauge></mat-grid-tile>
-                
+                                <ngx-gauge [type]="gaugeType" [value]="displayLog['gInputAI_2_Exh']" [label]="'Teplota výstup'" [append]="'°C'"
+                                        [thick]=20>
+                                </ngx-gauge>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                                <ngx-gauge [type]="gaugeType" [value]="displayLog['gInputAI_2_Room']" [label]="'Teplota sála'" [append]="'°C'"
+                                        [thick]=20>
+                                </ngx-gauge>
+                        </mat-grid-tile>
                 </mat-grid-list>
-                
+
+                <mat-grid-list cols="1" rowHeight="15:1">
+                        <mat-grid-tile>
+                                <h3>Aktívny mód: {{displayControls['gOpMode_Main']}} </h3>
+                        </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="2" rowHeight="3:2">
+                        <mat-grid-tile>
+
+                                <ngx-gauge [type]="gaugeTypeVent" [value]="displayControls['gSetManSetpFreqSup']" [label]="'Vstup'" [append]="'%'" [thick]=20>
+                                </ngx-gauge>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+
+                                <ngx-gauge [type]="gaugeTypeVent" [value]="displayControls['gSetManSetpFreqExh']" [label]="'Výstup'" [append]="'%'" [thick]=20>
+                                </ngx-gauge>
+                        </mat-grid-tile>
+
+                </mat-grid-list>
+
         </mat-tab>
 
 
         <mat-tab label="Tabuľka">
 
-                <table >
+                <table>
                         <tr *ngFor="let attribute of attributes">
                                 <td>{{attribute.variable}}</td>
                                 <td>{{attribute.name}}</td>
@@ -69,7 +52,7 @@
                         </tr>
                 </table>
 
-           <!--     <div class="mat-elevation-z8">
+                <!--     <div class="mat-elevation-z8">
                         <mat-table #table *ngIf="attributes" [dataSource]="attributes">
 
                              

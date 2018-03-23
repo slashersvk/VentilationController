@@ -4,15 +4,18 @@
           <h1>Cinema Airmote</h1>
         </mat-toolbar>
     <mat-list>
-      <a class="menu-button" mat-button href="app" > Údaje </a>
-      <a class="menu-button" mat-button  href="app/statistics" > Štatistiky </a>
-      <a class="menu-button" mat-button  href="app/edit" > Nastavenia </a>
+      <a class="menu-button" mat-button  (click)="changeView(0)" > Údaje </a>
+      <a class="menu-button" mat-button  (click)="changeView(1)" > Štatistiky </a>
+      <a class="menu-button" mat-button  (click)="changeView(2)" > Nastavenia </a>
       <br>
       <br><br><br>
       <a class="menu-button" mat-button href="/#" (click)="logout()" > Odhlásiť </a>
      </mat-list>
   </mat-drawer>
   <mat-drawer-content>
-      <router-outlet></router-outlet>
+      
+      <app-dashboard *ngIf="showView == 0" [logs]="logs" [controls]="controls"></app-dashboard>
+      <app-chart *ngIf="showView == 1"  [logs]="logs"></app-chart>
+      <app-set-values *ngIf="showView == 2" [inputControls]="controls"></app-set-values> 
   </mat-drawer-content>
 </mat-drawer-container>

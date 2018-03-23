@@ -11,7 +11,7 @@ class LogsController extends Controller
     {
         $req = $request->all();
         
-        $ret = Logs::where('created_at', '>', $req['last_update'])->get();
+        $ret = Logs::where('created_at', '>', $req['updated_at'])->get();
         return $ret;
     }
 }
